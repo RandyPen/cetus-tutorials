@@ -6,6 +6,10 @@
 When migrating liquidity to the Cetus Pool, there are typically two types of coins involved, often an alt coin and a sui coin. If you want to add liquidity across the full range, you can use the following method to calculate the initial sqrt price of the pool.
 
 ```rust
+const PRICE_MULTIPER_DECIMAL: u8 = 10;
+const ORACLE_PRICE_MULTIPER_DECIMAL: u8 = 10;
+const UINT64_MAX: u128 = 0xffffffffffffffff;
+
 public fun calculate_sqrt_price(alt_amount: u64, sui_amount: u64): u128 {
     let price: u128 = std::u128::pow(10, PRICE_MULTIPER_DECIMAL) * (sui_amount as u128) / (alt_amount as u128);
     let sqrt_val: u128 = std::u128::sqrt(price);
@@ -18,4 +22,4 @@ public fun calculate_sqrt_price(alt_amount: u64, sui_amount: u64): u128 {
 }
 ```
 
-Here, [integer_math](https://github.com/CetusProtocol/integer-mate) is a library of signed number calculation formulas open-sourced by the Cetus team.
+[integer_math](https://github.com/CetusProtocol/integer-mate) is a library of signed number calculation formulas open-sourced by the Cetus team.
