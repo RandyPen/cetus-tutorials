@@ -10,8 +10,8 @@ const PRICE_MULTIPER_DECIMAL: u8 = 10;
 const ORACLE_PRICE_MULTIPER_DECIMAL: u8 = 10;
 const UINT64_MAX: u128 = 0xffffffffffffffff;
 
-public fun calculate_sqrt_price(alt_amount: u64, sui_amount: u64): u128 {
-    let price: u128 = std::u128::pow(10, PRICE_MULTIPER_DECIMAL) * (sui_amount as u128) / (alt_amount as u128);
+public fun calculate_sqrt_price(base_amount: u64, quoto_amount: u64): u128 {
+    let price: u128 = std::u128::pow(10, PRICE_MULTIPER_DECIMAL) * (quote_amount as u128) / (base_amount as u128);
     let sqrt_val: u128 = std::u128::sqrt(price);
     let sqrt_price: u128 = integer_mate::full_math_u128::mul_div_floor(
         sqrt_val,
