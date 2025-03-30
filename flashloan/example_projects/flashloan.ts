@@ -49,7 +49,7 @@ const [balanceA, balanceB, flreceipt] = tx.moveCall({
 // do sth
 const [reBalance] = tx.moveCall({
     package: "0x2",
-    module: "balance",
+    module: "coin",
     function: "split",
     arguments: [
         balanceA,
